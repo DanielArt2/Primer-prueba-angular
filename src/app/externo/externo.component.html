@@ -1,0 +1,44 @@
+<div>
+    {{fecha | date:'dd-MM-yyyy'}} <br>
+    {{fecha | date:'fullDate' | uppercase}} <br>
+    {{'HOLA MUNDO USANDO PIPES' | lowercase}}<br>
+    {{4 | calculadora: 2}}
+</div>
+
+<hr>
+<input type="text" [(ngModel)]="userId" (keyup.enter)="cargaUsuario()">
+<div *ngIf="!user">
+    Cargando...
+</div>
+<div *ngIf="user"> <h2>Datos completos del usuario </h2>
+    <br>
+    <img src='{{user.avatar}}'>
+    <br>
+    Email: {{user.email}}
+    <br>
+    Nombre: {{user.first_name}}
+    <br>
+    Apellido: {{user.last_name}}
+</div>
+
+
+<h2>Agregar contacto</h2>
+
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+    <label for="nombre">Nombre</label><br>
+    <input type="text" name="nombre" #name="ngModel" [(ngModel)]="new_user.name"  required pattern="[a-zA-Z ]+"><span *ngIf="name.touched && !name.valid">El nombre es obligatorio</span><br>
+
+    <label for="trabajo">Trabajo</label><br>
+    <input type="text" name="trabajo" #trabajo="ngModel" [(ngModel)]="new_user.job"  required pattern="[a-zA-Z ]+"><span *ngIf="trabajo.touched && !trabajo.valid">El trabajo es obligatorio</span><br><br>
+
+    <input type="submit" value="Guardar usuario" [disabled]="!newUser.form.valid" >
+
+
+</form>
+
+
+<div *ngIf="usuario_guardado">
+    <h3>{{usuario_guardado.name}}</h3><br>
+    <h4>{{usuario_guardado.job}}</h4>
+</div>
+

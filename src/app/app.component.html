@@ -1,0 +1,29 @@
+<div>
+    <h1>Bienvenido a {{title}}</h1>
+    <p>{{descripcion}}</p>
+    <nav>
+        <button [routerLink]="['/home']" [routerLinkActive]="['active']">Home</button>
+        &nbsp;
+        <button [routerLink]="['/zapatillas']" [routerLinkActive]="['active']">Zapatillas</button>
+        &nbsp;
+        <button [routerLink]="['/videojuegos']" [routerLinkActive]="['active']">Videojuegos</button>
+        &nbsp;
+        <button [routerLink]="['/cursos']" [routerLinkActive]="['active']">Cursos</button>
+        &nbsp;
+        <button [routerLink]="['/externo']" [routerLinkActive]="['active']">Externo</button>
+        &nbsp;
+        <button [routerLink]="['/contacto']" [routerLinkActive]="['active']">Contacto</button>
+
+    </nav>
+    <hr>
+<!-- 
+    <button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">Ocultar Videojuegos</button>
+    <button (click)="ocultarVideojuegos(true)" *ngIf="!mostrar_videojuegos">Mostrar Videojuegos</button>
+
+
+    <videojuegos *ngIf="mostrar_videojuegos"></videojuegos>
+    <cursos></cursos>
+-->
+    <!-- <zapatillas></zapatillas> -->
+    <router-outlet></router-outlet>
+</div>
